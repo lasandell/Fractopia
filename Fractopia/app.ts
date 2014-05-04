@@ -1,10 +1,11 @@
 ﻿var canvas = <HTMLCanvasElement> document.getElementById("canvas");
-var gl = <WebGLRenderingContext> canvas.getContext("webgl");
+var gl = <WebGLRenderingContext> canvas.getContext("webgl", { preserveDrawingBuffer: true });
 var startColorPicker = <HTMLInputElement>document.getElementById("startColor");
 var endColorPicker = <HTMLInputElement>document.getElementById("endColor");
 var swapColorsCheckBox = <HTMLInputElement> document.getElementById("swapColors");
 var hsbRadio = <HTMLInputElement> document.getElementById("hsbRadio");
 var rgbRadio = <HTMLInputElement> document.getElementById("rgbRadio");
+var downloadLink = <HTMLLinkElement> document.getElementById("downloadLink");
 
 var program: WebGLProgram;
 
@@ -122,6 +123,10 @@ canvas.oncontextmenu = e => {
 }
 
 canvas.onclick = e => zoom(e.clientX, e.clientY, 0.25);
+
+downloadLink.onclick = () => {
+    downloadLink.href = canvas.toDataURL();
+};
 
 window.onkeydown = e => {
     var scaleFactor = 0.75;
