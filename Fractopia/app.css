@@ -1,0 +1,31 @@
+﻿/*body {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+span {
+    font-style: italic;
+}*/
+
+body {
+    overflow: hidden;
+}
+
+#controls {
+    position: absolute;
+    margin-top: 0px;
+    left: 1220px;
+}
+
+#controls>div {
+    margin-bottom: 20px;
+}
+
+#controls>div>label {
+    display: inline-block;
+    width: 100px
+}
+
+#controls>div>input/*[type='range']*/ {
+    display: inline-block; 
+    /*width: 200px*/
+}
