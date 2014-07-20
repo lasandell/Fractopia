@@ -1,5 +1,5 @@
 ﻿var canvas = document.getElementById("canvas");
-var gl = canvas.getContext("experimental-webgl", { preserveDrawingBuffer: true });
+var gl = canvas.getContext("webgl", { preserveDrawingBuffer: true });
 var startColorPicker = document.getElementById("startColor");
 var endColorPicker = document.getElementById("endColor");
 var swapColorsCheckBox = document.getElementById("swapColors");
@@ -82,8 +82,7 @@ function render() {
 function zoom(clientCenterX, clientCenterY, factor) {
     var canvasX = clientCenterX - canvas.clientLeft;
     var canvasY = canvas.clientHeight - (clientCenterY - canvas.clientTop);
-    var canvasRect = new Rectangle(canvas.clientLeft, canvas.clientTop, canvas.clientWidth, canvas.clientHeight);
-    var point = mapPoint(canvasRect, rect, new Point(canvasX, canvasY));
+    var point = mapPoint(new Rectangle(0, 0, canvas.clientWidth, canvas.clientHeight), rect, new Point(canvasX, canvasY));
     rect = rect.scale(factor, factor).center(point.x, point.y);
     render();
 }
@@ -140,10 +139,10 @@ window.onkeydown = function (e) {
         case 13:
         case 107:
         case 187:
-            rect = rect.scale(scaleFactor, scaleFactor).center(rect.left + rect.width / 2, rect.top + rect.height / 2);
+            rect = rect.scale(scaleFactor, scaleFactor);
             break;
         case 189:
-            rect = rect.scale(1 / scaleFactor, 1 / scaleFactor).center(rect.left + rect.width / 2, rect.top + rect.height / 2);
+            rect = rect.scale(1 / scaleFactor, 1 / scaleFactor);
             break;
         case 37:
             rect = rect.translate(-nudgeDelta, 0);
