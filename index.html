@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Fractopia!</title>
+    <link rel="stylesheet" href="app.css" type="text/css" />
+</head>
+<body>
+    <div id="controls">
+        <div>
+            <label>Start Color</label>
+            <input type="color" id="startColor" />
+        </div>
+        <div>
+            <label>End Color</label>
+            <input type="color" id="endColor" />
+        </div>
+        <div>
+            <label>Swap Colors</label>
+            <input type="checkbox" id="swapColors" value="true"/>
+        </div>
+        <div>
+            <label>Gradient Type</label>
+            <input type="radio" name="gradientType" id="hsbRadio" value="HSB" checked />HSB
+            <input type="radio" name="gradientType" id="rgbRadio" value="RGB" />RGB
+        </div>
+        <hr />
+        <b>WebGL Mandelbrot Fractals</b>
+        <p>
+        <b>Controls</b>
+        <br />Move: Arrow Keys
+        <br />Zoom In: + (Left Click)
+        <br />Zoom Out: - (Right Click)
+        <br />Esc: Reset Zoom
+        </p>
+        <p>Zoom is currently limited by the floating-point precision of WebGL.</p>
+        <p>Does not work on IE!</p>
+        <p><a href="#" id="downloadLink" target="_blank" download="fractal.png">Download Image</a></p>
+        <p><a href="http://luketopia.net/Fractopia">luketopia.net/Fractopia</a></p>
+        <p><a href="http://github.com/lasandell/Fractopia">github.com/lasandell/Fractopia</a></p>
+    </div>
+    <div>
+        <canvas id="canvas" width="1200" height="800" />
+    </div>
+    <script src="primitives.js"></script>
+    <script src="shaders.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
